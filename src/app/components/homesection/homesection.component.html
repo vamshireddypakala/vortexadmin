@@ -1,0 +1,82 @@
+<div class="container-scroller">
+	<!-- partial:partials/_navbar.html -->
+
+	<logo-nav></logo-nav>
+	<!-- partial -->
+	<div class="container-fluid page-body-wrapper">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<!-- partial:partials/_settings-panel.html -->
+			<header-nav></header-nav>
+			<profile-nav></profile-nav>
+			<!-- partial -->
+			<!-- partial:partials/_sidebar.html -->
+
+			<!-- partial -->
+			<div class="content-wrapper">
+				<div class="card">
+					<div class="card-body">
+						<a (click)="addHomeSection()" id="show" class="btn  btn-maron" style="float: right">Add Home
+							Section</a>
+						<h3 class="card-title text-center">Home Section List</h3>
+						<br />
+						<div class="row">
+							<div class="col-12">
+								<div class="row">
+									<div class="col-6 search">
+										<label>Search : </label> &nbsp;&nbsp;
+										<input class="form-control" type="text" name="search" [(ngModel)]="filter">
+									</div>
+								</div>
+								<br />
+								<div class="table-responsive">
+
+									<table id="order-listing" class="table table-bordered" style="text-align: center">
+										<thead class="thead-dark">
+											<tr>
+												<th>S.no</th>
+												<th>Home Section Name</th>
+												<th>Home Section Image</th>
+												<th>Actions </th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="todo-list"
+												*ngFor="let response of HomeData| filter:filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+												<td>{{i+1}}</td>
+												<td>{{response.content_name}}</td>
+												<td><img [src]="response.content_image"></td>
+												<td>
+													<a class="btn btn-outline-primary"
+														(click)="editHomeSection(response._id,response.content_name,response.content_image)">Edit</a>&nbsp;&nbsp;&nbsp;
+													<a class="btn btn-outline-primary chat"
+														(click)="delete(response._id)">Delete</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<pagination-controls (pageChange)="p = $event"
+										style="float:right; margin-top:15px;"></pagination-controls>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- content-wrapper ends -->
+			<!-- partial:partials/_footer.html -->
+			<footer class="footer">
+				<div class="container-fluid clearfix">
+					<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+						<a routerLink="#">Vortex </a>. All rights reserved. </span>
+					<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+						<!-- <i class="mdi mdi-heart text-danger"></i> -->
+					</span>
+				</div>
+			</footer>
+			<!-- partial -->
+		</div>
+		<!-- row-offcanvas ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
+</div>

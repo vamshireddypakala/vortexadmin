@@ -1,0 +1,90 @@
+<div class="container-scroller">
+	<!-- partial:partials/_navbar.html -->
+
+	<logo-nav></logo-nav>
+	<!-- partial -->
+	<div class="container-fluid page-body-wrapper">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<!-- partial:partials/_settings-panel.html -->
+			<header-nav></header-nav>
+			<profile-nav></profile-nav>
+			<!-- partial -->
+			<!-- partial:partials/_sidebar.html -->
+
+			<!-- partial -->
+			<div class="content-wrapper">
+				<div class="card">
+					<div class="card-body">
+						<a (click)="addcontent()" id="show" class="btn  btn-maron" style="float: right">Add Content
+							Management
+							Section</a>
+						<h3 class="card-title text-center">Content Management Section List</h3>
+						<br />
+						<div class="row">
+							<div class="col-12">
+								<div class="row">
+									<div class="col-6 search">
+										<label>Search : </label> &nbsp;&nbsp;
+										<input class="form-control" type="text" name="search" [(ngModel)]="filter">
+									</div>
+								</div>
+								<br />
+								<div class="table-responsive">
+									<table id="order-listing" class="table table-bordered" style="text-align: center">
+										<thead class="thead-dark">
+											<tr>
+												<th>S.no</th>
+												<th>Home Subsection Name</th>
+												<th>Sub Section Name</th>
+												<th>Image</th>
+												<th>Content</th>
+												<th>Actions </th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="todo-list"
+												*ngFor="let final_content of FinalSectionData | filter:filter | paginate: { itemsPerPage: 10, currentPage: p }; let i = index">
+												<td>{{i+1}}</td>
+												<td>{{final_content.content_name}}</td>
+												<td>{{final_content.sub_content_name}}</td>
+												<td><img [src]="final_content.section_image"></td>
+												<td>
+													<p [innerHTML]="final_content.section_text | safe: 'html'"
+														class="terms-p content-para">
+													</p>
+
+												</td>
+												<td style="display:inline-flex;">
+													<a class="btn btn-outline-primary"
+														(click)="addcontent(final_content.section_id,final_content.section_name,final_content.link,final_content.section_image,final_content.section_text,final_content.content_name,final_content.sub_content_name)">Edit</a>&nbsp;&nbsp;&nbsp;
+													<a class="btn btn-outline-primary chat"
+														(click)="deleteContent(final_content._id)">Delete</a>
+												</td>
+											</tr>
+										</tbody>
+
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- content-wrapper ends -->
+			<!-- partial:partials/_footer.html -->
+			<footer class="footer">
+				<div class="container-fluid clearfix">
+					<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+						<a routerLink="#">Vortex </a>. All rights reserved. </span>
+					<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+						<!-- <i class="mdi mdi-heart text-danger"></i> -->
+					</span>
+				</div>
+			</footer>
+			<!-- partial -->
+		</div>
+		<!-- row-offcanvas ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
+</div>

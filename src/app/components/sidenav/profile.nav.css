@@ -1,0 +1,15 @@
+.dropdown-class a:hover{
+    background: #ffffff !important;
+    color: #03a9f3!important;
+    padding: 14px 7px;
+}
+.dropdown-class a{
+    color: #03a9f3!important;
+    padding: 14px 7px;
+    }
+.dropdown-class:hover{ 
+    background: #ffffff !important;
+    }
+    .dropdown-class{ 
+        padding: 14px 7px;
+    }

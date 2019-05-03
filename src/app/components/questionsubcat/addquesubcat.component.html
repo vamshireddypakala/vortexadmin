@@ -1,0 +1,75 @@
+<div class="container-scroller">
+	<!-- partial:partials/_navbar.html -->
+	<logo-nav></logo-nav>
+	<!-- partial -->
+	<div class="container-fluid page-body-wrapper">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<!-- partial:partials/_settings-panel.html -->
+			<header-nav></header-nav>
+			<profile-nav></profile-nav>
+			<!-- partial -->
+			<!-- partial:partials/_sidebar.html -->
+
+			<!-- partial -->
+			<div class="content-wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title text-center">{{title}}</h4>
+								<a (click)="subsection()" id="show" class="btn  btn-maron"
+									style="float: right;    margin-top: -45px;">Back</a>
+								<form [formGroup]="addQueSubCatForm" (ngSubmit)="addQueSubCat()">
+									<div class="form-group">
+										<label for="exampleInputEmail1"> Select Home Section Name</label>
+										<select [selected]="QueCatName" class="form-control " id="exampleSelectPrimary"
+											[(ngModel)]="QueCatName" name="QueCatName"
+											(change)="changeCat($event.target.value)"
+											[ngModelOptions]="{standalone: true}">
+											<option value="" disabled selected hidden>Select category</option>
+											<option *ngFor="let response of QueCatData1"
+												[value]="response.category_name"
+												[selected]="response.category_name==QueCatName">
+												{{response.category_name}}</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail2">Sub Section Name</label>
+										<input type="text" class="form-control" id="exampleInputEmail2"
+											aria-describedby="emailHelp" [ngModelOptions]="{standalone: true}"
+											formControlName="sub_category_name" name="sub_category_name"
+											[ngClass]="{ 'is-invalid':submitted&& f.sub_category_name.errors }">
+										<div *ngIf=" submitted && f.sub_category_name.errors" class="invalid-feedback">
+											<div *ngIf=" submitted && f.sub_category_name.errors.required">Questionnaire
+												Subcategory
+												is
+												required
+											</div>
+										</div>
+									</div>
+									<button type="submit" class="btn btn-primary vendor-button">{{btntitle}}</button>
+									<!-- <button type="submit" *ngIf="id" class="btn btn-primary vendor-button">Edit
+										Sub Section</button> -->
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- content-wrapper ends -->
+			<!-- partial:partials/_footer.html -->
+			<footer class="footer">
+				<div class="container-fluid clearfix">
+					<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
+						<a routerLink="#">Vortex</a>. All rights reserved. </span>
+					<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+
+					</span>
+				</div>
+			</footer>
+			<!-- partial -->
+		</div>
+		<!-- row-offcanvas ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
+</div>

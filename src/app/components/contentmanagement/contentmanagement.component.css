@@ -1,0 +1,7 @@
+.content-para{
+    white-space: nowrap;
+    width: 60px;
+    overflow: hidden;
+    height: 40px;
+    text-overflow: ellipsis;
+} 

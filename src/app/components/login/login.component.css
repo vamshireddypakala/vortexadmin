@@ -1,0 +1,12 @@
+.buttons {
+  display: inline-flex;
+
+}
+
+.buttons btn {
+  width: 30%;
+}
+
+.eye-icon {
+  cursor: pointer;
+}

@@ -1,0 +1,82 @@
+<div class="container-scroller">
+	<!-- partial:partials/_navbar.html -->
+	<logo-nav></logo-nav>
+	<!-- partial -->
+	<div class="container-fluid page-body-wrapper">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<!-- partial:partials/_settings-panel.html -->
+			<header-nav></header-nav>
+			<profile-nav></profile-nav>
+			<!-- partial -->
+			<!-- partial:partials/_sidebar.html -->
+
+			<!-- partial -->
+			<div class="content-wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title text-center">{{title}}</h4>
+								<a (click)="themesection()" id="show" class="btn  btn-maron"
+									style="float: right;    margin-top: -45px;">Back</a>
+								<form>
+									<div class="form-group">
+										<label for="exampleInputEmail1">Theme Section Name</label>
+										<input type="text" class="form-control" [(ngModel)]="formData.home_header"
+											name="home_header" [ngModelOptions]="{standalone: true}">
+									</div>
+									<div class="form-group">
+										<label for="exampleInputEmail1">Theme Section Background Image</label>
+										<input class="form-control" type="file" accept="image/*"
+											(change)="changeListener($event)" [(ngModel)]="HeadImg" name="HeadImg">
+										<div *ngIf="image">
+											<img src="{{image}}" alt="" width="100" height="100"
+												style="border: solid 1px;margin-top: 2%;">
+										</div>
+									</div>
+									<div class="form-group">
+										<img src="{{HeadImg}}" alt="" width="100" height="100"
+											style="border: solid 1px;margin-top: 2%;">
+									</div>
+									<div class="form-group">
+										<label for="firstname">Select Background Color :</label>
+										<br />
+										<!-- <lib-ngx-ttitan-color-picker [(color)]="color1" (change)="colorChange($event)">
+                      </lib-ngx-ttitan-color-picker> -->
+										<lib-ngx-ttitan-color-picker [color]="color2"
+											(colorChange)="colorChange($event)"></lib-ngx-ttitan-color-picker>
+									</div>
+									<button type="submit" *ngIf="!HeaderId" class="btn btn-primary vendor-button"
+										(click)="addThemesection()">Add
+										Theme Section
+									</button>
+									<button type="submit" *ngIf="HeaderId" class="btn btn-primary vendor-button"
+										(click)="updateThemesection()">Edit
+										Theme Section
+									</button>
+									<!-- <button type="submit" class="btn btn-primary vendor-button">Update
+                      category
+                    </button> -->
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- content-wrapper ends -->
+			<!-- partial:partials/_footer.html -->
+			<footer class="footer">
+				<div class="container-fluid clearfix">
+					<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
+						<a routerLink="#">Vortex</a>. All rights reserved. </span>
+					<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+
+					</span>
+				</div>
+			</footer>
+			<!-- partial -->
+		</div>
+		<!-- row-offcanvas ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
+</div>

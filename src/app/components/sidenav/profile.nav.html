@@ -1,0 +1,85 @@
+<div class="nav-side-menu scrollbar
+" id="style-4">
+	<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+	<div class="menu-list">
+
+		<div class="nav-link">
+			<div class="profile-image text-center">
+				<img src="assets/images/user.png" alt="image" />
+				<!-- <img src="assets/images/image.jpg" alt="image" /> -->
+
+				<span class="online-status online"></span>
+				<!--change class online to offline or busy as needed-->
+				<p class="name">
+					Test
+				</p>
+			</div>
+		</div>
+
+		<ul id="menu-content" class="menu-content collapse out">
+
+			<li class="nav-item" [ngClass]="{'active':pageNav==='Ecommerce'}" *ngIf="Ecommerce">
+				<a class="nav-link" routerLink="/Ecommerce">
+					<i class="icon-layers menu-icon"></i>
+					<span class="menu-title">E-Commerce </span>
+				</a>
+			</li>
+			<li class="nav-item" [ngClass]="{'active':pageNav==='Bookings'}" *ngIf="Bookings">
+				<a class="nav-link" routerLink="/Bookings">
+					<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
+					<span class="menu-title sub">Bookings List</span>
+				</a>
+			</li>
+			<li class="nav-item" [ngClass]="{'active':pageNav==='AvailableTimings'}" *ngIf="AvailableTimings">
+				<a class="nav-link" routerLink="/AvailableTimings">
+					<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
+					<span class="menu-title sub">Available Timings</span>
+				</a>
+			</li>
+			<li class="nav-item" [ngClass]="{'active':pageNav==='UnvailableDates'}" *ngIf="UnvailableDates">
+				<a class="nav-link" routerLink="/UnvailableDates">
+					<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
+					<span class="menu-title sub">Unavailable Dates</span>
+				</a>
+			</li>
+			<li class="nav-item" [ngClass]="{'active':pageNav==='TimeManagement'}" *ngIf="TimeManagement">
+				<a class="nav-link" routerLink="/TimeManagement">
+					<i class="fa fa-caret-square-o-right" aria-hidden="true"></i>
+					<span class="menu-title sub">Time Management</span>
+				</a>
+			</li>
+			<li data-toggle="collapse" data-target="#banners" class="collapsed  nav-item dropdown-class"
+				style="margin-left:2px;" [ngClass]="{'active':pageNav==='themesection'|| pageNav==='Homesection' ||pageNav==='Subsection' ||pageNav==='ContentManagement'|| pageNav==='addthemesection' ||pageNav==='addHomeSection'
+			||pageNav==='addSubsection' || pageNav==='addContentManagement' }" *ngIf="content">
+				<a class="sub"> <i class="fa fa-picture-o" aria-hidden="true"></i> <span class="sub"></span>Content
+					Management
+					<span class="arrow"></span></a>
+			</li>
+			<ul class="sub-menu collapse keep-inside-clicks-open'" id="banners" *ngIf="content">
+				<li routerLink="/themesection"><a>Theme Section </a></li>
+				<li routerLink="/Homesection"><a>Home Section </a></li>
+				<li routerLink="/Subsection"><a>Sub Section</a></li>
+				<li routerLink="/ContentManagement"><a>Final Content</a></li>
+			</ul>
+			<li data-toggle="collapse" data-target="#questions" class="collapsed  nav-item dropdown-class"
+				[ngClass]="{'active':pageNav==='questionnaire'|| pageNav==='questioncategory' || pageNav==='questionsubcategory'|| pageNav==='addquestioncategory'||pageNav==='addquestionsubcategory'}"
+				*ngIf="questionnaire">
+				<a class="sub"> <i class="fa fa-picture-o" aria-hidden="true"></i> <span
+						class="sub"></span>Questionnaire
+					<span class="arrow"></span></a>
+			</li>
+			<ul class="sub-menu collapse keep-inside-clicks-open'" id="questions" *ngIf="questionnaire">
+				<li routerLink="/questioncategory"><a>Category</a></li>
+				<li routerLink="/questionsubcategory"><a>Sub category </a></li>
+				<li routerLink="/description"><a>Add Description</a></li>
+				<li routerLink="/questionnaire"><a>Add Questions</a></li>
+			</ul>
+			<li class="nav-item">
+				<a class="nav-link" routerLink="/">
+					<i class="icon-power menu-icon"></i>
+					<span class="menu-title">Logout </span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,88 @@
+<div class="container-scroller">
+	<!-- partial:partials/_navbar.html -->
+	<logo-nav></logo-nav>
+	<!-- partial -->
+	<div class="container-fluid page-body-wrapper">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<!-- partial:partials/_settings-panel.html -->
+			<header-nav></header-nav>
+			<profile-nav></profile-nav>
+			<!-- partial -->
+			<!-- partial:partials/_sidebar.html -->
+
+			<!-- partial -->
+			<div class="content-wrapper">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<h4 class="card-title text-center">{{title}}</h4>
+								<a (click)="homesection()" id="show" class="btn  btn-maron"
+									style="float: right;    margin-top: -45px;">Back</a>
+								<form [formGroup]="addHomeSectionForm" (ngSubmit)="addHomesection()">
+									<div class="form-group">
+										<label for="exampleInputEmail1">Home Section Name</label>
+										<input type="text" class="form-control" id="exampleInputEmail1"
+											aria-describedby="emailHelp" formControlName="content_name"
+											name="content_name"
+											[ngClass]="{ 'is-invalid':submitted&& f.content_name.errors }" [ngModelOptions]="{standalone: true}">
+										<div *ngIf=" submitted && f.content_name.errors" class="invalid-feedback">
+											<div *ngIf=" submitted && f.content_name.errors.required">Home Section Name
+												is
+												required
+											</div>
+										</div>
+									</div>
+									<!-- <div class="form-group">
+										<label for="exampleInputEmail2">Link</label>
+										<input type="text" class="form-control" id="exampleInputEmail2"
+											formControlName="link" name="link"
+											[ngClass]="{ 'is-invalid':submitted&& f.link.errors }" [ngModelOptions]="{standalone: true}">
+										<div *ngIf=" submitted && f.link.errors" class="invalid-feedback">
+											<div *ngIf=" submitted && f.link.errors.required">Home Section Link is
+												required
+											</div>
+										</div>
+									</div> -->
+									<div class="form-group">
+										<label for="exampleInputEmail1">Home Section Background Image</label>
+										<input class="form-control" type="file" accept="image/*"
+											(change)="changeListener($event)" [(ngModel)]="homeSecImage"
+											name="homeSecImage" [ngModelOptions]="{standalone: true}">
+										<div *ngIf="image">
+											<img src="{{image}}" alt="" width="100" height="100"
+												style="border: solid 1px;margin-top: 2%;">
+										</div>
+									</div>
+									<div class="form-group">
+										<img src="{{homeSecImage}}" alt="" width="100" height="100"
+											style="border: solid 1px;margin-top: 2%;">
+									</div>
+
+									<button type="submit" *ngIf="!id" class="btn btn-primary vendor-button">Add
+										Home Section</button>
+									<button type="submit" *ngIf="id" class="btn btn-primary vendor-button">Edit
+										Home Section</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- content-wrapper ends -->
+			<!-- partial:partials/_footer.html -->
+			<footer class="footer">
+				<div class="container-fluid clearfix">
+					<span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019
+						<a routerLink="#">Vortex</a>. All rights reserved. </span>
+					<span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">
+
+					</span>
+				</div>
+			</footer>
+			<!-- partial -->
+		</div>
+		<!-- row-offcanvas ends -->
+	</div>
+	<!-- page-body-wrapper ends -->
+</div>
